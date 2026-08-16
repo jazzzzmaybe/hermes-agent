@@ -5,7 +5,7 @@ import type * as EnvModule from '../config/env.js'
 // Mutable dashboard-mode flag so tests can flip HERMES_TUI_DASHBOARD per case
 // (env.ts evaluates it once at module load, so a static mock cannot toggle).
 const envState = vi.hoisted(() => ({ dashboard: false }))
-vi.mock('../config/env.js', async (importOriginal) => {
+vi.mock('../config/env.js', async importOriginal => {
   const actual = await importOriginal<EnvModule>()
 
   return {
